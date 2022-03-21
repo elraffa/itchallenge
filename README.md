@@ -1,6 +1,7 @@
 # IT Crowd Challenge
 
 This is my solution to the challenge. App is deployed with Heroku on https://itchallenge-fr.herokuapp.com/build
+To test locally clone this repo and run 
 
 ## Backend
 
@@ -17,4 +18,4 @@ The Frontend was created with React using create-react-app as a starter. I am us
 
 ## Todo
 
-I have aimed to resolve the basic requirements for the assignment. With some more time to complete I could try to resolve the extras suggested, such as authorization, add a second model, etc.
+I have aimed to resolve the basic requirements for the assignment. With some more time to complete I could try to resolve the extras suggested, such as authorization, add a second model, improvements to the UI, etc.
