@@ -13,6 +13,7 @@ connectDB();
 
 // Use CORS
 //app.use(cors());
+app.disable('etag');
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the API' });
