@@ -11,8 +11,9 @@ app.use(express.json({ extended: false }));
 // Connect database
 connectDB();
 
-// Use CORS
+// Use CORS for development
 //app.use(cors());
+
 app.disable('etag');
 
 app.get('/', (req, res) => {
@@ -21,28 +22,15 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', require('./routes/products'));
 
-//This will create a middleware.
-//When you navigate to the root page, it would use the built react-app
-// app.use(express.static(path.resolve(__dirname, './client/build')));
-
 //Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
-  //app.use(express.static('client/build'));
   app.use(express.static(path.resolve(__dirname, './client/build')));
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-// // Avoid 304 Not Modified
-// app.get('/*', function (req, res, next) {
-//   res.setHeader('Last-Modified', new Date().toUTCString());
-//   next();
-// });
-// }
-
-// const PORT = process.env.PORT || 5000;
 
 const PORT = process.env.PORT || 5000;
 
