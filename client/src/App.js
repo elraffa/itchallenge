@@ -11,7 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchItems = async () => {
-      const result = await axios('http://localhost:5000/api/products');
+      const result = await axios('./api/products');
 
       setProducts(result.data);
       setIsLoading(false);
