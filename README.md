@@ -1,7 +1,7 @@
 # IT Crowd Challenge
 
 This is my solution to the challenge. App is deployed with Heroku on https://itchallenge-fr.herokuapp.com/build.
-To test locally clone this repo and run `npm install` and `npm run dev`
+To test locally make sure you have Node.js installed in your computer, clone this repo and run `npm install` and `npm run dev`
 
 ## Backend
 
