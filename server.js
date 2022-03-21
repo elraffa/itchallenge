@@ -8,10 +8,6 @@ const app = express();
 // Init middleware
 app.use(express.json({ extended: false }));
 
-//This will create a middleware.
-//When you navigate to the root page, it would use the built react-app
-app.use(express.static(path.resolve(__dirname, './client/build')));
-
 // Connect database
 connectDB();
 
@@ -23,6 +19,20 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', require('./routes/products'));
+
+//This will create a middleware.
+//When you navigate to the root page, it would use the built react-app
+// app.use(express.static(path.resolve(__dirname, './client/build')));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.port || 5000;
 
